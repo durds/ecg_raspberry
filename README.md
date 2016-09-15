@@ -1,22 +1,21 @@
-Team 3
+# ECG with Raspberry Pi and AD7705
 
-ECG with Raspberry Pi and AD7705
+## Team 3
+### 2105361 - Eduardo Moraes
 
-2105361 - Eduardo Moraes
+### 2104960 - Kallin Mansur da Costa
 
-2104960 - Kallin Mansur da Costa
-
-Introduction
+## Introduction
 As an assignment for the laboratory sessions of the second part of the Real Time Embedded Programing course, the task of measuring an analogue signal with a Raspberry Pi board and an A/D converter.
 
 With many different choices of measurements, the team decided to go for a critical Real Time measurement in which the knowledge of the Digital Signal Processing course could be applied.
 
-ECG
+## ECG
 The electrocardiography is a way of monitoring the heart's rate as well as the chamber positions by sensing the electrical impulses it generates, a very low signal in the millivolt range.
 
 This signal has to be amplified in order to be interpreted, and after this amplification the signal shows a lot of noise, specially the 50Hz from the power supply, which should be filtered out.
 
-Hardware
+## Hardware
 The hardware consists of a two stage amplification system, using a differential amplification IC and an operational amplifier and an isolation system.
 
  
@@ -29,7 +28,7 @@ Having the amplification system powered by four AA batteries, and the output pow
 
 The A/D converter used was an AD7705 connected to the Raspberry via SPI. This A/D was set to measure the signal at a 250Hz sampling rate with its range set from 0v to 2.048v.
 
-Software
+## Software
 The main software used a Qwt library to display the waveform being sensed by the A/D converter on a screen, the example was a rather simple program which plotted incoming values with no signal processing at a 50Hz sampling rate.
 
 As ECGs need a higher sampling rate, the AD7705 was set to operate at 250Hz. This meant that the refresh rate of the screen could be maintained at 25 FPS, but the plot array would have to be updated once every four milliseconds.
@@ -38,14 +37,14 @@ A new thread was started to acquire samples from the A/D converter, run each sam
 
 Additionally, the program would plot the output to a file and also calculate the BPM and plot it on the console.
 
-Demo
+## Demo
  https://www.youtube.com/watch?v=sgi8nEUMjbg
 
 
 
 
 
-Final Considerations
+## Final Considerations
 After analysing the demo ECG taken in the lab it was identified that there was a 90Hz noise present in the samples, coming from an unknown source.
 
 Upon further inspection and MATlab analysis, it was identified that the A/D converter was actually sampling at about 140Hz this meant that simply adjusting the frequency parameters on the filters was enough to produce a clear ECG signal.
