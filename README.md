@@ -1,5 +1,5 @@
 # ECG with Raspberry Pi and AD7705
-
+Link to the university's webesite with the images: http://web.eng.gla.ac.uk/rpi/2014/3/
 ## Team 3
 ### 2105361 - Eduardo Moraes
 
